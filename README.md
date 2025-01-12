@@ -1,0 +1,1 @@
+education project, have a chrome extension that display as discord status

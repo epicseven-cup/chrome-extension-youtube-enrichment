@@ -1,0 +1,19 @@
+{
+  "name": "chrome-extension-youtube-enrichment",
+  "description": "Display youtube videos that user is current watching on Discord status",
+  "version": "0.1",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": {
+    "matches" : ["https://*.youtube.com/*"],
+    "js": ["content-script-youtube.js"]
+  }
+}
+
