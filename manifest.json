@@ -11,9 +11,15 @@
     "service_worker": "service-worker.js",
     "type": "module"
   },
-  "content_scripts": {
-    "matches" : ["https://*.youtube.com/*", "https://youtube.com/*"],
-    "js": ["script/content-script-youtube.js"]
-  }
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.youtube.com/*",
+        "https://youtube.com/*"
+      ],
+      "js": [
+        "scripts/content-script-youtube.js"
+      ]
+    }
+  ]
 }
-
