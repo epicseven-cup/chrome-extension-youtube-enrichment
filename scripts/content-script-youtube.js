@@ -24,6 +24,19 @@ class YoutubeThumbnail {
 const getVideoId = /v=(.*?)&/
 const cleanPageTitle = /^\(\d\)|-\sYouTube$/
 let url = document.URL
+
+if (url === null || url === undefined){
+    console.error("Fail to get current page url")
+    return
+}
+
+let pageTitle = document.title
+
+if (pageTitle === null || pageTitle === undefined){
+    console.error("Fail to get current page title")
+    return
+}
+
 // If the url matches a youtube url at 2024, that has the v=.* query param
 if (getVideoId.test(url)){
     let videoId = getVideoId.match(url) // should have two regex group, the outter with v=XXX& and XXX
@@ -32,11 +45,15 @@ if (getVideoId.test(url)){
         return
     } 
 
-    let pageTitle = document.title.replace(cleanPageTitle, "")
-    if (pageTitle === null || pageTitle === undefined) {
-        console.error(`Error when trying to parse Page Title ${pageTitle}`)
+    let videoTitle = pageTitle.replace(cleanPageTitle, "")
+    if (videoTitle === null || videoTitle === undefined) {
+        console.error(`Error when trying to parse Video Title ${videoTitle}`)
         return
     }
-    let message = new YoutubeMessage()
-    chrome.tabs.sendMessage()
+
+    let thumbnail = new YoutubeThumbnail(videoId)
+    let date = new Date()
+
+    let message = new YoutubeMessage(videoTitle, thumbnail.getThumbnailUrl(), +date)
+    chrome.tabs.sendMessage(message)
 }
