@@ -1,8 +1,10 @@
 node_modules/*
 asset/*
 build/*
+config/*
 
 
 # keep the folder
 !asset/.gitkeep
 !build/.gitkeep
+!config/.gitkeep

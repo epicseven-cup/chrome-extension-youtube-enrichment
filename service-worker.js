@@ -4,11 +4,11 @@ import { setActivity, setup } from "./lib/discord.js"
 chrome.runtime.onInstalled.addListener((details) => {
     if (details.reason !== "install" && details.reason !== "update") return;
     console.info("Plugin installed / updated!")
-
 });
 
 
 chrome.runtime.onStartup.addListener(() => {
+
     setup()
 })
 
