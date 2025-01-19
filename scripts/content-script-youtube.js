@@ -1,4 +1,5 @@
-import { setActivity } from "../lib/discord";
+console.log("HIT")
+
 
 
 class YoutubeMessage {
@@ -51,5 +52,6 @@ if (getVideoId.test(url)) {
     let date = new Date()
 
     let message = new YoutubeMessage(videoTitle, thumbnail.getThumbnailUrl(), +date)
-    chrome.tabs.sendMessage(message)
+    console.log("Sending message")
+    chrome.tabs.sendMessage(JSON.stringify(message))
 }

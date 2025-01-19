@@ -5,7 +5,12 @@ const port = Number(process.env.PORT) || 3001
 
 app.use(express.json())
 
-app.post('/api/token', async(req, res) => {
+
+// app.get('/api/token', async(req, res) => {
+// 	console.log(req)
+// })
+
+app.get('/api/token', async(req, res) => {
     const response = await fetchAndRetry('https://discord.com/api/oauth2/token', {
 		method: 'POST',
 		headers: {

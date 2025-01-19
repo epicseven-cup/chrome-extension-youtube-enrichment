@@ -9,5 +9,6 @@
     "@rollup/plugin-replace": "^6.0.2",
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
-  }
+  },
+  "type": "module"
 }
